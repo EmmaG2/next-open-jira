@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js - Entries app
 
-## Getting Started
-
-First, run the development server:
+Para correr el proyecto localmente, se necesita levantar la base de datos utilizando docker:
 
 ```bash
-npm run dev
-# or
-yarn dev
+docker-compose up -d
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* El -d, significa __detached__
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+En caso de no tener ```docker``` instalado, lo puedes instalar desde el siguiente haciendo [click en este enalace.](https://www.docker.com/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Mongo Db URL
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+mongodb://localhost:27017//entriesdb
+```
 
-## Learn More
+## Configurar variables de entorno
 
-To learn more about Next.js, take a look at the following resources:
+Rellenar los campos del archivo __.env.template__ y renombrarlo a __.env__
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Lenar la base de datos con información de pruebas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Una vez que el proyecto esté levantado genere la información de prueba llamando al siguiente endpoint:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```js
+GET http://localhost:3000/api/seed
+```
